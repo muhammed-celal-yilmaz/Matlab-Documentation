@@ -1,0 +1,29 @@
+2D GRAFİKLER
+
+>> %%Plotting
+>> script_7
+>> plot(x)
+>> plot(z(:,1))
+>> figure;plot(z(:,end))
+>> close all
+>> grid minor
+>> xlabel('Time (s)')
+>> ylabel('Genlik')
+>> title('Sinüs figürü')
+
+>> legend(sin(t)) %grafik daha detaylı olur.
+Error using legend (line 263)
+Invalid argument. Type 'help legend' for more information.
+ 
+>> legend('sin(t)')
+Warning: Ignoring extra legend entries. 
+> In legend>process_inputs (line 592)
+In legend>make_legend (line 319)
+In legend (line 263) 
+>> legend('sin(t)')
+Warning: Ignoring extra legend entries. 
+>> help plot %Fonksiyon hakkında bilgi alırsın.Arayüzlerle de işlemler yapabilrsin.
+
+3D GRAFİKLER
+
+Çeşitli simülasyon tasarım analiz ve grafikler oluşturabilir ve hesaplamalar yapabilirsin.

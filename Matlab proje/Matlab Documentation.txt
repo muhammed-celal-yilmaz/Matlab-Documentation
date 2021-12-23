@@ -1,0 +1,841 @@
+MATLAB
+Bir matematikçi tarafından geliştirilen matlab,bilimsel çalışmalarda,modellemelerde,
+gelişmiş bir hesap makinesi olarak kullanılır.
+
+Değişkenler
+>> x=25
+
+x =
+
+    25
+
+>> z=3+4i %karmaşık sayılar için
+
+z =
+
+   3.0000 + 4.0000i
+
+>> z=5/6
+
+z =
+
+    0.8333
+
+>> clc %pencereyi temizler
+
+>> a='matlab'
+
+a =
+
+    'matlab'
+
+>> b="matlab"
+
+b = 
+
+    "matlab"
+
+>> 3+4+5
+
+ans =
+
+    12
+
+>> ans/10
+
+ans =
+
+    1.2000
+
+>>    %atanmayan değişken ans de tutulur.
+
+>> class(a)
+
+ans =
+
+    'char'
+
+>> f=25.6 %double
+
+f =
+
+   25.6000
+
+>> who %Şu ana kadarki değişkenler
+
+Your variables are:
+
+a    ans  b    f    z    
+
+>> whos % daha detaylı
+  Name      Size            Bytes  Class     Attributes
+
+  a         1x6                12  char                
+  ans       1x4                 8  char                
+  b         1x1               150  string              
+  f         1x1                 8  double              
+  z         1x1                 8  double              
+
+>> x=int8(5) %8 bitlik
+
+x =
+
+  int8
+
+   5
+
+>> clear a b %değişken silme
+>> clear %tüm değişkenleri silme
+>> x=45
+
+x =
+
+    45
+
+>> y=67
+
+y =
+
+    67
+
+>> %değişkenleri workspace alanından üzerine tıklayarak kaydedebilirsin ve dizinden çağırabilirsin.
+>> load('degisken.mat') % komutuyla veya bu komutu bir değişkene doğrudan atarsın.
+% Matlabda asıl işlemler vektör array matrislerle oluyor.
+%Yukarı ok tuşuyla daha önceki komutlar gelir.
+
+Vektörler
+
+>> v=[1 2 3 4 5] %satır vektörü araya virgülde koyabilirsin.
+
+v =
+
+     1     2     3     4     5
+
+>> w=[1;2;3;4;5] %sütun vektörü
+
+w =
+
+     1
+     2
+     3
+     4
+     5
+
+>> f=[1 2 3 4 5]
+
+f =
+
+     1     2     3     4     5
+
+>> f' %transpose
+
+ans =
+
+     1
+     2
+     3
+     4
+     5
+
+>> f=[1 2 3 4 5]
+
+f =
+
+     1     2     3     4     5
+
+>> f=[1 2 3 4 5]'
+
+f =
+
+     1
+     2
+     3
+     4
+     5
+
+>> z=1:10
+
+z =
+
+     1     2     3     4     5     6     7     8     9    10
+
+>> z=1:2:10 % kolayca vektör tanımlama
+
+z =
+
+     1     3     5     7     9
+
+>> z=0:0.1:1 %simülasyonlarda zaman adımları için önemli
+
+z =
+
+  Columns 1 through 10
+
+         0    0.1000    0.2000    0.3000    0.4000    0.5000    0.6000    0.7000    0.8000    0.9000
+
+  Column 11
+
+    1.0000
+
+>> z=0:0.1:3
+
+z =
+
+  Columns 1 through 10
+
+         0    0.1000    0.2000    0.3000    0.4000    0.5000    0.6000    0.7000    0.8000    0.9000
+
+  Columns 11 through 20
+
+    1.0000    1.1000    1.2000    1.3000    1.4000    1.5000    1.6000    1.7000    1.8000    1.9000
+
+  Columns 21 through 30
+
+    2.0000    2.1000    2.2000    2.3000    2.4000    2.5000    2.6000    2.7000    2.8000    2.9000
+
+  Column 31
+
+    3.0000
+
+>> %z değişkeni double
+>> c=linspace(1,5,20) %bu şekilde de oluşturulabilir,lineer şekilde böler.
+
+c =
+
+  Columns 1 through 10
+
+    1.0000    1.2105    1.4211    1.6316    1.8421    2.0526    2.2632    2.4737    2.6842    2.8947
+
+  Columns 11 through 20
+
+    3.1053    3.3158    3.5263    3.7368    3.9474    4.1579    4.3684    4.5789    4.7895    5.0000
+
+>> %20 değişken.
+>> rand(1,5)
+
+ans =
+
+    0.8147    0.9058    0.1270    0.9134    0.6324
+
+>> rand(1,5)'
+
+ans =
+
+    0.0975
+    0.2785
+    0.5469
+    0.9575
+    0.9649
+
+>> rand(5,1)
+
+ans =
+
+    0.1576
+    0.9706
+    0.9572
+    0.4854
+    0.8003
+
+>> %rand ile uniform rastgele sayılar.
+>> randn(5,1) %normal dağılımla,ortalama 0,standart sapması 1 olan dağılımdan çıkartıyor.
+
+ans =
+
+   -0.2050
+   -0.1241
+    1.4897
+    1.4090
+    1.4172
+
+>> ones(5,1) %bütün değerleri 1
+
+ans =
+
+     1
+     1
+     1
+     1
+     1
+
+>> zeros(5,1)
+
+ans =
+
+     0
+     0
+     0
+     0
+     0
+
+>> x=zeros(500,1); %sonuna ; koyarsan matlab bunu işleyecek ama command windowda göstermeyecek. 
+>> f
+
+f =
+
+     1
+     2
+     3
+     4
+     5
+
+>> f[1]
+ f[1]
+  ↑
+Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check
+for mismatched delimiters.
+ 
+>> f(1) %elemanlara erişme
+
+ans =
+
+     1
+
+>> f(end)
+
+ans =
+
+     5
+
+>> f(end-1)
+
+ans =
+
+     4
+
+>> d=1:20;
+>> d([1 4 7]) %vektör girersek bunları index kabul eder.Yani 1,4,7. elemanlar...
+
+ans =
+
+     1     4     7
+
+>> %Kolon operatörüyle ardışıklar: 
+>> d(5:15:2)
+
+ans =
+
+  1×0 empty double row vector
+
+>> d(5:2:15)
+
+ans =
+
+     5     7     9    11    13    15
+
+>> d(10:end)
+
+ans =
+
+    10    11    12    13    14    15    16    17    18    19    20
+
+>> %Vektörlerin uzunluk ve boyutu için:
+>> length(d)
+
+ans =
+
+    20
+
+>> size(d)
+
+ans =
+
+     1    20
+
+>> [satir sutun]=size(d)
+
+satir =
+
+     1
+
+
+sutun =
+
+    20
+
+>> % Vektörlerle işlemler
+>> v=1:5
+
+v =
+
+     1     2     3     4     5
+
+>> %skalarla toplama,skaları vektör haline getiriyor.
+>> 3+v
+
+ans =
+
+     4     5     6     7     8
+
+>> 3*v
+
+ans =
+
+     3     6     9    12    15
+
+>> x=2.33
+
+x =
+
+    2.3300
+
+>> 2*x+cos(x/3)^2-sqrt(x)*exp(x^2) %e üzeri x,cos radyan cinsi
+
+ans =
+
+ -342.7031
+
+>> x=[2.33 1.50 3.4];
+>> 2*x+cos(x/3)^2-sqrt(x)*exp(x^2) %e üzeri x,cos radyan cinsi
+Error using  ^  (line 52)
+Incorrect dimensions for raising a matrix to a power. Check that the matrix is square and the power is
+a scalar. To perform elementwise matrix powers, use '.^'.
+ 
+>> %İşlemi tam belirt yani her elemana mı yapıyorsun.
+>> 2.*x+cos(x/3).^2-sqrt(x).*exp(x.^2) 
+
+ans =
+
+   1.0e+05 *
+
+   -0.0034   -0.0001   -1.9327
+
+>> % . ile belirtirsek operatörden önce,eleman eleman yapar işlemleri.
+>> %ans değişkeninden elemanların sonucunu görürüz.
+>> %arraydeki elemanlara uygulamak için tek satırda . operatörüyle tüm elemanlara uygularsın.Bu vektörizasyondur ve böylece for döngüsü az kullanırız.
+
+Matrisler
+
+>> M=[1 2 3; 4 5 6; 7 8 9]
+
+M =
+
+     1     2     3
+     4     5     6
+     7     8     9
+
+>> size(M)
+
+ans =
+
+     3     3
+
+>> A=rand(3,4)
+
+A =
+
+    0.8147    0.9134    0.2785    0.9649
+    0.9058    0.6324    0.5469    0.1576
+    0.1270    0.0975    0.9575    0.9706
+
+>> B=A'
+
+B =
+
+    0.8147    0.9058    0.1270
+    0.9134    0.6324    0.0975
+    0.2785    0.5469    0.9575
+    0.9649    0.1576    0.9706
+
+>> size(B)
+
+ans =
+
+     4     3
+
+>> ones(4,5)
+
+ans =
+
+     1     1     1     1     1
+     1     1     1     1     1
+     1     1     1     1     1
+     1     1     1     1     1
+
+>> zeros(2,2)
+
+ans =
+
+     0     0
+     0     0
+
+>> a=[1 2 3];
+>> b=[.1 .2 .3];
+>> c=[1.5 1.6 1.7];
+>> A=[a;b;c]
+
+A =
+
+    1.0000    2.0000    3.0000
+    0.1000    0.2000    0.3000
+    1.5000    1.6000    1.7000
+
+>> a=[1 2 3]';
+>> b=[.1 .2 .3]';
+>> c=[1.5 1.6 1.7]';
+>> A=[a b c]
+
+A =
+
+    1.0000    0.1000    1.5000
+    2.0000    0.2000    1.6000
+    3.0000    0.3000    1.7000
+
+>> A=[a; b; c]
+
+A =
+
+    1.0000
+    2.0000
+    3.0000
+    0.1000
+    0.2000
+    0.3000
+    1.5000
+    1.6000
+    1.7000
+
+>> %köşegenlerinde 1,2,3 olan diagonal bir matris
+>> a=[1 2 3]
+
+a =
+
+     1     2     3
+
+>> A=diag(a)
+
+A =
+
+     1     0     0
+     0     2     0
+     0     0     3
+
+>> diag(A)
+
+ans =
+
+     1
+     2
+     3
+
+>> M
+
+M =
+
+     1     2     3
+     4     5     6
+     7     8     9
+
+>> M(1,2) % 0 dan başlama muhabbeti burda yok.
+
+ans =
+
+     2
+
+>> M=rand(10,10)
+
+M =
+
+    0.9572    0.8491    0.2769    0.7655    0.6551    0.5060    0.8143    0.5853    0.5308    0.3112
+    0.4854    0.9340    0.0462    0.7952    0.1626    0.6991    0.2435    0.5497    0.7792    0.5285
+    0.8003    0.6787    0.0971    0.1869    0.1190    0.8909    0.9293    0.9172    0.9340    0.1656
+    0.1419    0.7577    0.8235    0.4898    0.4984    0.9593    0.3500    0.2858    0.1299    0.6020
+    0.4218    0.7431    0.6948    0.4456    0.9597    0.5472    0.1966    0.7572    0.5688    0.2630
+    0.9157    0.3922    0.3171    0.6463    0.3404    0.1386    0.2511    0.7537    0.4694    0.6541
+    0.7922    0.6555    0.9502    0.7094    0.5853    0.1493    0.6160    0.3804    0.0119    0.6892
+    0.9595    0.1712    0.0344    0.7547    0.2238    0.2575    0.4733    0.5678    0.3371    0.7482
+    0.6557    0.7060    0.4387    0.2760    0.7513    0.8407    0.3517    0.0759    0.1622    0.4505
+    0.0357    0.0318    0.3816    0.6797    0.2551    0.2543    0.8308    0.0540    0.7943    0.0838
+
+>> %satır 5 den 9 a;sütun 1 den 4 e
+>> M(5:9,1:4)
+
+ans =
+
+    0.4218    0.7431    0.6948    0.4456
+    0.9157    0.3922    0.3171    0.6463
+    0.7922    0.6555    0.9502    0.7094
+    0.9595    0.1712    0.0344    0.7547
+    0.6557    0.7060    0.4387    0.2760
+
+
+>> M=[1 2 3 4; 5 6 7 8; 8 9 10 11 12]
+Error using vertcat
+Dimensions of arrays being concatenated are not consistent.
+ 
+>> M=[1 2 3 4; 5 6 7 8;  9 10 11 12]
+
+M =
+
+     1     2     3     4
+     5     6     7     8
+     9    10    11    12
+
+>> reshape(M,[6 2]) % boyut çarpımına uysun.
+
+ans =
+
+     1     3
+     5     7
+     9    11
+     2     4
+     6     8
+    10    12
+
+>> M=ones(4,4)
+
+M =
+
+     1     1     1     1
+     1     1     1     1
+     1     1     1     1
+     1     1     1     1
+
+>> 5+M
+
+ans =
+
+     6     6     6     6
+     6     6     6     6
+     6     6     6     6
+     6     6     6     6
+
+>> pi
+
+ans =
+
+    3.1416
+
+>> format long %hassas gösterim için
+>> pi
+
+ans =
+
+   3.141592653589793
+
+>> format short
+>> pi
+
+ans =
+
+    3.1416
+
+>> M*pi
+
+ans =
+
+    3.1416    3.1416    3.1416    3.1416
+    3.1416    3.1416    3.1416    3.1416
+    3.1416    3.1416    3.1416    3.1416
+    3.1416    3.1416    3.1416    3.1416
+
+>> M=rand(3,4);
+>> N=rand(4,5);
+>> K=rand(5,3);
+>> M*K
+Error using  * 
+Incorrect dimensions for matrix multiplication. Check that the number of columns in the first matrix
+matches the number of rows in the second matrix. To perform elementwise multiplication, use '.*'.
+
+Related documentation
+ 
+>> M*N
+
+ans =
+
+    1.2957    1.6299    0.4018    0.8602    1.2302
+    1.2534    0.8633    0.3732    1.3501    1.2717
+    1.3087    1.5883    0.4115    0.8809    1.1848
+
+>> N/K
+Error using  / 
+Matrix dimensions must agree.
+ 
+>> N*K
+
+ans =
+
+    0.6558    1.9042    1.6871
+    0.6590    1.6664    1.6584
+    0.2340    1.0354    0.9262
+    0.3747    1.0984    1.0077
+
+>> M*N*K
+
+ans =
+
+    1.0731    2.9497    2.7976
+    1.0591    3.0998    2.8484
+    1.0717    2.9117    2.7887
+
+>> M=rand(3,4);
+>> N=rand(3,4);
+>> M*N
+Error using  * 
+Incorrect dimensions for matrix multiplication. Check that the number of columns in the first matrix
+matches the number of rows in the second matrix. To perform elementwise multiplication, use '.*'.
+
+Related documentation
+ 
+>> M.*N %ELEMAN ELEMAN ÇARPMA,AYNI HİZADAKİLERLE
+
+ans =
+
+    0.0393    0.0104    0.0966    0.3146
+    0.6407    0.0683    0.6102    0.0177
+    0.0060    0.0626    0.4311    0.1748
+
+>> %Boyut farketmezz böylece
+>> M=rand(4,4) %Kare matris
+
+M =
+
+    0.1890    0.6256    0.7757    0.3063
+    0.6868    0.7802    0.4868    0.5085
+    0.1835    0.0811    0.4359    0.5108
+    0.3685    0.9294    0.4468    0.8176
+
+>> %Kare matrissin tersi alınabilir.
+>> %determinant
+>> det(M)
+
+ans =
+
+   -0.1218
+
+>> inv(M) %matrisin tersi
+
+ans =
+
+   -0.9132    2.3314    0.4367   -1.3806
+    0.5470   -0.2442   -1.7972    1.0696
+    1.4709   -0.0837    0.7830   -0.9882
+   -1.0139   -0.7274    1.4182    1.1694
+
+>> %Matrisin özdeğer özvektörleri V özvektör D özdeğer
+>> [V,D]=eig(M)
+
+V =
+
+   0.4115 + 0.0000i  -0.8084 + 0.0000i   0.1437 - 0.3934i   0.1437 + 0.3934i
+   0.5781 + 0.0000i   0.4663 + 0.0000i  -0.3891 - 0.2248i  -0.3891 + 0.2248i
+   0.2770 + 0.0000i   0.2822 + 0.0000i   0.5603 + 0.0000i   0.5603 + 0.0000i
+   0.6478 + 0.0000i  -0.2224 + 0.0000i  -0.1888 + 0.5226i  -0.1888 - 0.5226i
+
+
+D =
+
+   2.0722 + 0.0000i   0.0000 + 0.0000i   0.0000 + 0.0000i   0.0000 + 0.0000i
+   0.0000 + 0.0000i  -0.3584 + 0.0000i   0.0000 + 0.0000i   0.0000 + 0.0000i
+   0.0000 + 0.0000i   0.0000 + 0.0000i   0.2544 + 0.3151i   0.0000 + 0.0000i
+   0.0000 + 0.0000i   0.0000 + 0.0000i   0.0000 + 0.0000i   0.2544 - 0.3151i
+
+>> %Bu kontrol sistemleri sitemlerin dinamiğini anlamak için kullanılabilir.
+
+Fonksiyon,Koşul ve döngüler
+Alttaki satırlar command window penceresinde yazanlardır.
+
+>> %scriptlerle çalışmak ana menüden new scriptle oluşturulabilir.
+>> length(t)
+Unrecognized function or variable 't'.
+ 
+>> script_1
+>> length(t)
+
+ans =
+
+   181
+
+>>  close
+>> %son grafik kapandı
+>> close all % tüm figürler kapanır.
+>> %tek tek command window da yazmak yerine scriptlere bölüyoruz kodlarımız.
+>> %bu pencere daha çok debugging veya hızlı işlemler için kullanılır.
+>> AlanCevreHesap(3)
+Unrecognized function or variable 'AlanCevreHesap'.
+ 
+>> AlanCevreHesap(3)
+Unrecognized function or variable 'AlanCevreHesap'.
+ 
+>> fonksiyon
+Not enough input arguments.
+
+Error in fonksiyon (line 4)
+outputArg1 = inputArg1;
+ 
+>> AlanCevreHesap(3)
+Unrecognized function or variable 'AlanCevreHesap'.
+ 
+>> AlanCevreHesap(3)
+Unrecognized function or variable 'AlanCevreHesap'.
+ 
+>> fonksiyon2 %script ismi ve fonksiyon ismi aynı olmalı.
+Not enough input arguments.
+
+Error in fonksiyon2 (line 3)
+Alan = pi*r.^2; % Burda r skalar veya vektörel verilebilir yani bir tekden ziyade n tane r için hesap yapılabilir.Vektörün karesini almak hata verebilir.O yüzden nokta kullandık.
+ 
+>> fonksiyon2(3)
+
+ans =
+
+   28.2743
+
+>> [a ,b]=fonksiyon2(3)
+
+a =
+
+   28.2743
+
+
+b =
+
+   18.8496
+
+>> r=[1 2 3];
+>> [a ,b]=fonksiyon2(r)
+
+a =
+
+    3.1416   12.5664   28.2743
+
+
+b =
+
+    6.2832   12.5664   18.8496
+
+>> script_2
+HHHH
+>> script_3
+Bir sayı girin:5
+Başka bir sayı
+>> script_4
+     1
+
+     3
+
+     5
+
+     7
+
+     9
+
+>> script_5
+     4
+
+     8
+
+     9
+
+>> script_6
+     1
+
+     2
+
+     3
+
+     4
+
+     5
+
+
